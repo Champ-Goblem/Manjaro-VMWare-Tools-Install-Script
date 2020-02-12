@@ -45,4 +45,7 @@ RemainAfterExit=yes
 [Install]
 WantedBy=multi-user.target' > /etc/systemd/system/vmware-tools.service
 sudo systemctl enable /etc/systemd/system/vmware-tools.service
+sudo rm -rf /etc/vmisrp
+sudo systemctl disable vmisrp.service
+sudo rm /etc/vmisrp.service
 fi
