@@ -9,7 +9,7 @@ tar -xjf vmtools-4-arch-and-co.tar.bz2
 
 sudo echo 'rm vmtools-4-arch-and-co.*
 sudo /etc/init.d/rc6.d/K99vmware-tools start
-sudo echo '[Unit]
+sudo echo \'[Unit]
 Description=VMWare Tools daemon
 [Service]
 ExecStart=/etc/init.d/vmware-tools start
@@ -18,7 +18,7 @@ PIDFile=/var/lock/subsys/vmware
 TimeoutSec=0
 RemainAfterExit=yes
 [Install]
-WantedBy=multi-user.target' > /etc/systemd/system/vmware-tools.service
+WantedBy=multi-user.target\' > /etc/systemd/system/vmware-tools.service
 sudo systemctl enable /etc/systemd/system/vmware-tools.service
 sudo rm -rf /etc/vmisrp
 sudo systemctl disable vmisrp.service
