@@ -7,9 +7,9 @@ read a
 wget http://www.as2.com/linux/tools/vmtools-4-arch-and-co.tar.bz2
 tar -xjf vmtools-4-arch-and-co.tar.bz2
 
-sudo echo 'rm vmtools-4-arch-and-co.*
+sudo echo "rm vmtools-4-arch-and-co.*
 sudo /etc/init.d/rc6.d/K99vmware-tools start
-sudo echo \'[Unit]
+sudo echo '[Unit]
 Description=VMWare Tools daemon
 [Service]
 ExecStart=/etc/init.d/vmware-tools start
@@ -18,20 +18,20 @@ PIDFile=/var/lock/subsys/vmware
 TimeoutSec=0
 RemainAfterExit=yes
 [Install]
-WantedBy=multi-user.target\' > /etc/systemd/system/vmware-tools.service
+WantedBy=multi-user.target' > /etc/systemd/system/vmware-tools.service
 sudo systemctl enable /etc/systemd/system/vmware-tools.service
 sudo rm -rf /etc/vmisrp
 sudo systemctl disable vmisrp.service
-sudo rm /etc/vmisrp.service' > /etc/vmisrp.sh
+sudo rm /etc/vmisrp.service" > /etc/vmisrp.sh
 
-sudo echo '[Unit]
+sudo echo "[Unit]
 Description=VMWare Install Script Restart Persistence
 [Service]
 ExecStart=/etc/vmisrp.sh
 ExecStop=
 RemainAfterExit=no
 [Install]
-WantedBy=multi-user.target' > /etc/systemd/system/vmisrp.service
+WantedBy=multi-user.target" > /etc/systemd/system/vmisrp.service
 
 sudo systemctl enable /etc/systemd/system/vmisrp.service
 echo ''
