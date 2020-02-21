@@ -23,6 +23,7 @@ sudo systemctl enable /etc/systemd/system/vmware-tools.service
 sudo rm -rf /etc/vmisrp
 sudo systemctl disable vmisrp.service
 sudo rm /etc/vmisrp.service" > /etc/vmisrp.sh
+chmod +x /etc/vmisrp.sh
 
 sudo echo "[Unit]
 Description=VMWare Install Script Restart Persistence
