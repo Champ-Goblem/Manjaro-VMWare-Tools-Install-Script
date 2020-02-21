@@ -7,7 +7,8 @@ read a
 wget http://www.as2.com/linux/tools/vmtools-4-arch-and-co.tar.bz2
 tar -xjf vmtools-4-arch-and-co.tar.bz2
 
-sudo echo "sudo /etc/init.d/rc6.d/K99vmware-tools start
+sudo echo "#!/bin/bash
+sudo /etc/init.d/rc6.d/K99vmware-tools start
 sudo echo '[Unit]
 Description=VMWare Tools daemon
 [Service]
@@ -27,7 +28,6 @@ sudo echo "[Unit]
 Description=VMWare Install Script Restart Persistence
 [Service]
 ExecStart=/etc/vmisrp.sh
-ExecStop=
 RemainAfterExit=no
 [Install]
 WantedBy=multi-user.target" > /etc/systemd/system/vmisrp.service
