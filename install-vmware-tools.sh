@@ -7,22 +7,20 @@ read a
 wget http://www.as2.com/linux/tools/vmtools-4-arch-and-co.tar.bz2
 tar -xjf vmtools-4-arch-and-co.tar.bz2
 
-sudo echo "rm vmtools-4-arch-and-co.*
-sudo /etc/init.d/rc6.d/K99vmware-tools start
+sudo echo "sudo /etc/init.d/rc6.d/K99vmware-tools start
 sudo echo '[Unit]
 Description=VMWare Tools daemon
 [Service]
 ExecStart=/etc/init.d/vmware-tools start
-ExecStop=/etc/init.d/vmware-tools stop
+ExecStop=/etc/init.d/vmware-tools stop  
 PIDFile=/var/lock/subsys/vmware
 TimeoutSec=0
 RemainAfterExit=yes
 [Install]
 WantedBy=multi-user.target' > /etc/systemd/system/vmware-tools.service
 sudo systemctl enable /etc/systemd/system/vmware-tools.service
-sudo rm -rf /etc/vmisrp
 sudo systemctl disable vmisrp.service
-sudo rm /etc/vmisrp.service" > /etc/vmisrp.sh
+sudo rm /etc/systemd/system/vmisrp.service" > /etc/vmisrp.sh
 chmod +x /etc/vmisrp.sh
 
 sudo echo "[Unit]
