@@ -11,6 +11,7 @@ sudo echo "#!/bin/bash
 sudo /etc/init.d/rc6.d/K99vmware-tools start
 sudo echo '[Unit]
 Description=VMWare Tools daemon
+After=vmware-tools.service
 [Service]
 ExecStart=/etc/init.d/vmware-tools start
 ExecStop=/etc/init.d/vmware-tools stop  
