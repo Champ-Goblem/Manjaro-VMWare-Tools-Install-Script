@@ -7,7 +7,7 @@ read a
 wget http://www.as2.com/linux/tools/vmtools-4-arch-and-co.tar.bz2
 tar -xjf vmtools-4-arch-and-co.tar.bz2
 
-sudo echo '[Unit]
+echo '[Unit]
 Description=VMWare Tools daemon
 After=vmware-tools.service
 [Service]
@@ -17,7 +17,7 @@ PIDFile=/var/lock/subsys/vmware
 TimeoutSec=0
 RemainAfterExit=yes
 [Install]
-WantedBy=multi-user.target' > /etc/systemd/system/vmware-tools.service
+WantedBy=multi-user.target' | sudo tee /etc/systemd/system/vmware-tools.service
 sudo systemctl enable /etc/systemd/system/vmware-tools.service
 
 echo 'Removing open-vm-tools package'
