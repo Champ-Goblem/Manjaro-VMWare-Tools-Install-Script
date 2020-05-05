@@ -7,8 +7,6 @@ read a
 wget http://www.as2.com/linux/tools/vmtools-4-arch-and-co.tar.bz2
 tar -xjf vmtools-4-arch-and-co.tar.bz2
 
-sudo echo "#!/bin/bash
-sudo /etc/init.d/rc6.d/K99vmware-tools start
 sudo echo '[Unit]
 Description=VMWare Tools daemon
 After=vmware-tools.service
@@ -21,21 +19,7 @@ RemainAfterExit=yes
 [Install]
 WantedBy=multi-user.target' > /etc/systemd/system/vmware-tools.service
 sudo systemctl enable /etc/systemd/system/vmware-tools.service
-sudo systemctl disable vmisrp.service
-sudo rm /etc/systemd/system/vmisrp.service" > /etc/vmisrp.sh
-chmod +x /etc/vmisrp.sh
 
-sudo echo "[Unit]
-Description=VMWare Install Script Restart Persistence
-[Service]
-ExecStart=/etc/vmisrp.sh
-RemainAfterExit=no
-[Install]
-WantedBy=multi-user.target" > /etc/systemd/system/vmisrp.service
-
-sudo systemctl enable /etc/systemd/system/vmisrp.service
-echo ''
-echo 'Installed VMWare Install Script Restart Persistence'
 echo 'Removing open-vm-tools package'
 sudo pacman -Rs open-vm-tools
 echo ''
